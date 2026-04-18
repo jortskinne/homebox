@@ -65,9 +65,10 @@ docker-build:
 	docker build -t $(DOCKER_IMAGE):$(DOCKER_TAG) .
 
 ## docker-run: Run the application in Docker
+# Note: mounting a local data directory so inventory data persists between container restarts
 docker-run:
 	@echo "Running Docker container..."
-	docker run -p 7745:7745 --rm $(DOCKER_IMAGE):$(DOCKER_TAG)
+	docker run -p 7745:7745 --rm -v $(PWD)/data:/data $(DOCKER_IMAGE):$(DOCKER_TAG)
 
 ## clean: Remove build artifacts
 clean:
