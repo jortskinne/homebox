@@ -66,9 +66,10 @@ docker-build:
 
 ## docker-run: Run the application in Docker
 # Note: mounting a local data directory so inventory data persists between container restarts
+# Using port 8080 locally instead of 7745 to avoid conflicts with other services on my machine
 docker-run:
 	@echo "Running Docker container..."
-	docker run -p 7745:7745 --rm -v $(PWD)/data:/data $(DOCKER_IMAGE):$(DOCKER_TAG)
+	docker run -p 8080:7745 --rm -v $(PWD)/data:/data $(DOCKER_IMAGE):$(DOCKER_TAG)
 
 ## clean: Remove build artifacts
 clean:
