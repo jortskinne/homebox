@@ -25,7 +25,7 @@ services:
     environment:
       - HBOX_LOG_LEVEL=info
       - HBOX_LOG_FORMAT=text
-      - HBOX_WEB_MAX_UPLOAD_SIZE=10
+      - HBOX_WEB_MAX_UPLOAD_SIZE=25
     volumes:
       - homebox-data:/data/
     ports:
