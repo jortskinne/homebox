@@ -82,6 +82,10 @@ tidy:
 	@echo "Tidying go modules..."
 	cd $(BACKEND_DIR) && $(GO) mod tidy
 
+## check: Run fmt, vet, and lint in sequence
+# Handy shortcut to run all static checks before committing
+check: fmt vet lint
+
 ## help: Show this help message
 help:
 	@echo "Usage: make [target]"
