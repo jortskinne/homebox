@@ -25,7 +25,7 @@ services:
     environment:
       - HBOX_LOG_LEVEL=info
       - HBOX_LOG_FORMAT=text
-      - HBOX_WEB_MAX_UPLOAD_SIZE=25
+      - HBOX_WEB_MAX_UPLOAD_SIZE=50
     volumes:
       - homebox-data:/data/
     ports:
@@ -64,6 +64,8 @@ Homebox is configured via environment variables:
 | `HBOX_WEB_MAX_UPLOAD_SIZE` | `10` | Max upload size in MB |
 | `HBOX_STORAGE_DATA` | `./data` | Path to data directory |
 | `HBOX_DATABASE_DRIVER` | `sqlite3` | Database driver |
+
+> **Personal note:** I bumped `HBOX_WEB_MAX_UPLOAD_SIZE` to `50` in the Docker Compose example above — the default 10 MB is too small for attaching appliance manuals and warranty PDFs.
 
 ## Contributing
 
