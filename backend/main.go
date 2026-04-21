@@ -35,8 +35,8 @@ func main() {
 		Addr:         cfg.Web.Host,
 		Handler:      srv.Handler(),
 		ReadTimeout:  15 * time.Second,
-		WriteTimeout: 30 * time.Second, // increased from 15s to handle slower uploads
-		IdleTimeout:  60 * time.Second,
+		WriteTimeout: 60 * time.Second, // bumped to 60s for large attachment uploads on slow home network
+		IdleTimeout:  120 * time.Second, // increased idle timeout for persistent connections
 	}
 
 	// Start server in a goroutine so we can listen for shutdown signals
