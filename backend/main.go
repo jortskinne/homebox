@@ -35,7 +35,7 @@ func main() {
 		Addr:         cfg.Web.Host,
 		Handler:      srv.Handler(),
 		ReadTimeout:  15 * time.Second,
-		WriteTimeout: 60 * time.Second, // bumped to 60s for large attachment uploads on slow home network
+		WriteTimeout: 60 * time.Second,  // bumped to 60s for large attachment uploads on slow home network
 		IdleTimeout:  120 * time.Second, // increased idle timeout for persistent connections
 	}
 
@@ -55,7 +55,8 @@ func main() {
 
 	log.Println("Shutting down server...")
 
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	// Use a longer timeout to allow in-flight requests (e.g. file uploads) to finish
+	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
 	defer cancel()
 
 	if err := httpServer.Shutdown(ctx); err != nil {
