@@ -64,8 +64,11 @@ Homebox is configured via environment variables:
 | `HBOX_WEB_MAX_UPLOAD_SIZE` | `10` | Max upload size in MB |
 | `HBOX_STORAGE_DATA` | `./data` | Path to data directory |
 | `HBOX_DATABASE_DRIVER` | `sqlite3` | Database driver |
+| `HBOX_OPTIONS_ALLOW_REGISTRATION` | `true` | Allow new user registration |
 
 > **Personal note:** I bumped `HBOX_WEB_MAX_UPLOAD_SIZE` to `50` in the Docker Compose example above — the default 10 MB is too small for attaching appliance manuals and warranty PDFs.
+
+> **Personal note:** Once I created my account I set `HBOX_OPTIONS_ALLOW_REGISTRATION=false` so no one else can register on my instance.
 
 ## Contributing
 
