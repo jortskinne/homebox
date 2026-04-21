@@ -9,10 +9,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/hay-kot/homebox/backend//config"
-	"github."
-)// version build time via ldflags
-var n	version = "dev"
+	"github.com/hay-kot/homebox/backend/config"
+	"github.com/hay-kot/homebox/backend/internal/server"
+)
+
+// version build time via ldflags
+var (
+	version = "dev"
 	commit  = "none"
 	date    = "unknown"
 )
@@ -32,7 +35,7 @@ func main() {
 		Addr:         cfg.Web.Host,
 		Handler:      srv.Handler(),
 		ReadTimeout:  15 * time.Second,
-		WriteTimeout: 15 * time.Second,
+		WriteTimeout: 30 * time.Second, // increased from 15s to handle slower uploads
 		IdleTimeout:  60 * time.Second,
 	}
 
